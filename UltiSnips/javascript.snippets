@@ -1,115 +1,121 @@
-#
-#  React snippets
-#
-
-snippet cs "React.addons.classSet" b
-var cx = React.addons.classSet;
+### JavaScript snippets ###
+snippet us "Use Strict" i
+'use strict';
 endsnippet
 
-snippet cdm "component did mount" b
-componentDidMount: function() {
+snippet ()  "lambda" i
+($1) => {$0}
+endsnippet
+
+snippet log "console Log" i
+console.log($1);$0
+endsnippet
+
+### React snippets ###
+snippet rt "create React component using file Template" b
+'use strict';
+
+import React from 'react';
+
+class ${1:`!p snip.rv = snip.basename.title()`} extends React.Component {
+
+	constructor(props) {
+		super(props);
+	}
+
+	render() {
+		return (
+			<div>$0</div>
+		);
+	}
+
+}
+
+export default $1;
+endsnippet
+
+snippet rc "create React Component" b
+class ${1:Component} extends React.Component {
+
+	constructor(props) {
+		super(props);
+	}
+
+	render() {
+		return (
+			<div>$0</div>
+		);
+	}
+
+}
+
+export $1;
+endsnippet
+
+
+snippet test "" b
+`!p snip.rv = snip.basename.title()`
+endsnippet
+
+snippet cwm "Component Will Mount" b
+componentWillMount() {
 	${1}
-},$0
+}$0
 endsnippet
 
-snippet cdup "component did update" b
-componentDidUpdate: function(prevProps, prevState) {
+snippet cdm "Component Did Mount" b
+componentDidMount() {
 	${1}
-},$0
+}$0
 endsnippet
 
-snippet cwm "component will mount" b
-componentWillMount: function() {
+snippet cwrp "Component Will Receive Props" b
+componentWillReceiveProps(nextProps) {
 	${1}
-},$0
+}$0
 endsnippet
 
-snippet cwr "component will receive props" b
-componentWillReceiveProps: function(nextProps) {
+snippet scu "Should Component Update" b
+shouldComponentUpdate(nextProps, nextState) {
 	${1}
-},$0
+}$0
 endsnippet
 
-snippet cwun "component will unmount" b
-componentWillUnmount: function() {
+snippet cwu "Component Will Update" b
+componentWillUpdate(nextProps, nextState) {
 	${1}
-},$0
+}$0
 endsnippet
 
-snippet cwu "component will update" b
-componentWillUpdate: function(nextProps, nextState) {
+snippet cdu "Component Did Update" b
+componentDidUpdate(prevProps, prevState) {
 	${1}
-},$0
+}$0
 endsnippet
 
-snippet cx
-cx({
-	${1}: ${2}
-});
+snippet cwum "Component Will Unmount" b
+componentWillUnmount() {
+	${1}
+}$0
 endsnippet
 
-snippet fup
-forceUpdate(${1:callback});
-endsnippet
-
-snippet gdp "get default props" b
-getDefaultProps: function() {
-	return {
-		${1}
-	};
-},$0
-endsnippet
-
-snippet gis "get initial state" b
-getInitialState: function() {
-	return {
-		${1}: ${2}
-	};
-},$0
-endsnippet
-
-snippet ism "is mounted"
-isMounted()
-endsnippet
-
-snippet jsx "define jsx dom" b
-/**
- * @jsx React.DOM
- */
-endsnippet
 
 snippet pt "propTypes" b
-propTypes: {
-	${1}: React.PropTypes.${2:string}
-},
-endsnippet
-
-snippet rcc "create class/component" b
-${1:/**
-* @jsx React.DOM
-*/
-
-var React = require('React');
-}
-var ${2:ClassName} = React.createClass({
-
-render: function() {
-	return (
-		${VISUAL}$4
-	);
-}
-
-});
-$0
-${3:module.exports = $2;}
+static propTypes = {
+	${1}: PropTypes.${2:string}
+};
 endsnippet
 
 snippet ren
-render: function() {
+render() {
 	return (
 		${1:<div />}
 	);
 }$0
+endsnippet
+
+snippet state "get state" i
+this.state.${1}
 endsnippet
 
 snippet sst "set state" b
@@ -118,20 +124,8 @@ this.setState({
 });$0
 endsnippet
 
-snippet scu "should component update"
-shouldComponentUpdate: function(nextProps, nextState) {
-	${1}
-},$0
-endsnippet
-
 snippet props "get property" i
 this.props.${1}
 endsnippet
 
-snippet state "get state" i
-this.state.${1}
-endsnippet
 
-snippet trp
-this.transferPropsTo(${VISUAL}$0);
-endsnippet
