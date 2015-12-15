@@ -11,13 +11,21 @@ snippet log "console Log" i
 console.log($1);$0
 endsnippet
 
+snippet im "IMport" b
+import '${0}';
+endsnippet
+
+snippet imf "IMport From" b
+import ${1} from '${0}';
+endsnippet
+
 ### React snippets ###
 snippet rt "create React component using file Template" b
 'use strict';
 
 import React from 'react';
 
-class ${1:`!p snip.rv = snip.basename.title()`} extends React.Component {
+class ${1:`!p snip.rv = snip.basename.title().replace('_', '')`} extends React.Component {
 
 	constructor(props) {
 		super(props);
@@ -25,7 +33,9 @@ class ${1:`!p snip.rv = snip.basename.title()`} extends React.Component {
 
 	render() {
 		return (
-			<div>$0</div>
+			<div>
+				$0
+			</div>
 		);
 	}
 
@@ -48,8 +58,6 @@ class ${1:Component} extends React.Component {
 	}
 
 }
-
-export $1;
 endsnippet
 
 
@@ -127,5 +135,3 @@ endsnippet
 snippet props "get property" i
 this.props.${1}
 endsnippet
-
-
