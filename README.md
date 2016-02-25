@@ -1,5 +1,8 @@
-#vim-react-es6-snippets
-ES6 Vim snippets for Facebook's [React](http://facebook.github.io/react/).
+#vim-javascript-es6-snippets
+ES6 Vim snippets for:
+* General Javascript
+* [React](http://facebook.github.io/react/)
+* [Relay](https://facebook.github.io/relay/)
 
 ##Dependencies
 * [SirVer/ultisnips](https://github.com/sirver/ultisnips)

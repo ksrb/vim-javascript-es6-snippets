@@ -147,3 +147,52 @@ endsnippet
 snippet nbsp "Non break space" i
 {'\u00a0'}
 endsnippet
+
+### Relay Snippets ###
+snippet rm "create Relay Mutation using file template" b
+'use strict';
+
+import Relay from 'react-relay';
+
+export default class `!p snip.rv = snip.basename.title().replace('_', '')` extends Relay.Mutation {
+	static fragments = {
+		${1:obj}: () => Relay.QL\`
+			fragment on `!p snip.rv = t[1].capitalize()` {
+				$0
+			},
+		\`,
+	};
+
+	getMutation() {
+		return Relay.QL\`
+			mutation {$2}
+		\`;
+	}
+
+	getFatQuery() {
+		return Relay.QL\`
+			fragment on `!p snip.rv = t[1].capitalize()` {
+				$3
+			}
+		\`;
+	}
+
+	getConfigs() {
+		return [{
+			$4
+		}];
+	}
+
+	getOptimisticResponse() {
+		return {
+			$5
+		};
+	}
+
+	getVariables() {
+		return {
+			$6
+		};
+	}
+}
+endsnippet
